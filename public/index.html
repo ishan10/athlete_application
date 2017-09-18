@@ -3,90 +3,92 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <title>Athlete App</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>Athlete App</title>
 </head>
 <body>
   <div class="container" ng-controller="AppCtrl">
     <p class="text-center text-info" style="font-size:35px;margin:10px">Athlete Application</p>
-  <h2> Athlete Registration</h2>
-  <table class="table">
-        <tr>
+    <hr class="intro-divider">
+    <h2> Athlete Registration</h2>
+    <table class="table">
+      <tr>
         <div class="form-group" style="margin-top:10px">
-        <form class="form">
+          <form class="form">
             <div class="form-group row">
-                <label for="athlete.basic.name" class="col-sm-2 col-form-label">Athlete Name</label>
-                <div class="col-md-4">
-                  <input type="text" class="form-control" ng-model="athlete.basic.name" placeholder="Enter Athlete Name" required>
-                </div>
+              <label for="athlete.basic.name" class="col-sm-2 col-form-label">Athlete Name</label>
+              <div class="col-md-4">
+                <input type="text" class="form-control" ng-model="athlete.basic.name" placeholder="Enter Athlete Name" required>
+              </div>
             </div>
             <fieldset class="form-group row">
               <label class="col-form-label col-sm-2">Gender</label>
-                <div class="col-sm-3">
-                  <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="radio" ng-model="athlete.basic.gender" value="Male">
-                        Male
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="radio" ng-model="athlete.basic.gender" value="Female">
-                        Female
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="radio" ng-model="athlete.basic.gender" value="Prefer not to Answer">
-                        I prefer not to answer
-                      </label>
-                    </div>
+              <div class="col-sm-3">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" ng-model="athlete.basic.gender" value="Male">
+                    Male
+                  </label>
                 </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" ng-model="athlete.basic.gender" value="Female">
+                    Female
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" ng-model="athlete.basic.gender" value="Prefer not to Answer">
+                    I prefer not to answer
+                  </label>
+                </div>
+              </div>
             </fieldset>
             <div class="form-group row">
-                <label for="thlete.basic.dob" class="col-sm-2 col-form-label">Date of Birth</label>
-                <div class="col-md-2">
-                  <input type="date" class="form-control" ng-model="athlete.basic.dob" value="2017-09-17" required>
-                </div>
+              <label for="thlete.basic.dob" class="col-sm-2 col-form-label">Date of Birth</label>
+              <div class="col-md-2">
+                <input type="date" class="form-control" ng-model="athlete.basic.dob" value="2017-09-17" required>
+              </div>
             </div>
             <div class="form-group row">
-                <label for="athlete.basic.nation" class="col-sm-2 col-form-label">Nationality</label>
-                <div class="col-md-2">
-                  <input type="text" class="form-control" ng-model="athlete.basic.nation" placeholder="Enter your Nationality">
-                </div>
+              <label for="athlete.basic.nation" class="col-sm-2 col-form-label">Nationality</label>
+              <div class="col-md-2">
+                <input type="text" class="form-control" ng-model="athlete.basic.nation" placeholder="Enter your Nationality">
+              </div>
             </div>
             <div class="form-group row">
               <label for="athlete.about.country" class="col-sm-2 col-form-label">Location</label>
               <div class="col-md-2">
-              <select ng-model="athlete.about.country" class="form-control">
-                <option value="">-Select a Country-</option>
-                <option ng-repeat="country in countries" value="{{country}}">{{country}}</option>
-              </select>
+                <select ng-model="athlete.about.country" class="form-control">
+                  <option value="">-Select a Country-</option>
+                  <option ng-repeat="country in countries" value="{{country}}">{{country}}</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-sm-2">
-              <label for="athlete.basic.sport" class="col-form-label" aria-describedby="sportsHelp">Sport</label>
+            <div class="form-group row">
+              <div class="col-sm-2">
+                <label for="athlete.basic.sport" class="col-form-label" aria-describedby="sportsHelp">Sport</label>
+              </div>
+              <div class="col-md-2">
+                <select name="sport" class="form-control" id="sport" ng-model="athlete.basic.sport" multiple>
+                  <option value="">-Select all that apply-</option>
+                  <option ng-repeat="x in sports"  value="{{x}}">{{x}}</option>
+                </select>
+              </div>
             </div>
-            <div class="col-md-2">
-              <select name="sport" class="form-control" id="sport" ng-model="athlete.basic.sport" multiple>
-                <option value="">-Select all that apply-</option>
-                <option ng-repeat="x in sports"  value="{{x}}">{{x}}</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group row">
+            <div class="form-group row">
               <label for="athlete.about.desc" class="col-sm-2 col-form-label">Description</label>
               <div class="col-md-4">
                 <input type="text" class="form-control" ng-model="athlete.about.desc" placeholder="Enter your description">
               </div>
-          </div>
-          <div class="form-group row">
+            </div>
+            <div class="form-group row">
               <label for="athlete.about.team" class="col-sm-2 col-form-label">Team</label>
               <div class="col-md-4">
                 <input type="text" class="form-control" ng-model="athlete.about.team" placeholder="Enter your team">
               </div>
-          </div>
-          <div class="form-group row">
+            </div>
+            <div class="form-group row">
               <label for="social" class="col-sm-2 col-form-label">Social Media</label>
               <div class="col-md-4">
                 <input type="url" class="form-control" ng-model="athlete.social.fb" placeholder="Enter your Facebook URL">
@@ -94,36 +96,37 @@
                 <input type="url" class="form-control" ng-model="athlete.social.github" placeholder="Enter your GitHub URL">
                 <input type="url" class="form-control" ng-model="athlete.social.twitter" placeholder="Enter your Twitter URL">
               </div>
-          </div>
-          <button type="submit" ng-click="addAthlete()" class="btn btn-success">Add Athlete</button>
-          <button type="submit" ng-click="updateAthlete()" class="btn btn-info">Update Athlete</button>
-          <button type="submit" ng-click="clearData()" class="btn btn-danger">Clear</button>
-        </form>
-      <p class="text-center text-danger" style="font-size:35px;margin:10px">Athlete Details</p>
-      </tr>
-    <thread>
-    <th>Athlete Name</th>
-    <th>Gender</th>
-    <th>Nationality</th>
-    <th>Location</th>
-    <th>DOB</th>
-    <th></th>
-    </thread>
-    <tbody>
-    <tr ng-repeat="athlete in athletelist">
-    <td>{{athlete.basic.name}}</td>
-    <td>{{athlete.basic.gender}}</td>
-    <td>{{athlete.basic.nation}}</td>
-    <td>{{athlete.about.country}}</td>
-    <td>{{athlete.basic.dob}}</td>
-    <td><button class="btn btn-warning" ng-click="editAthlete(athlete._id)">Edit Athlete</button></td>
-    </tr>
-  </tbody>
-  </table>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
-<script src="controllers/controller.js"></script>
-<script src="controllers/countries.js"></script>
-<script src="controllers/sports.js"></script>
-</body>
-</html>
+            </div>
+            <button type="submit" ng-click="addAthlete()" class="btn btn-success APIbtn">Add Athlete</button>
+            <button type="submit" ng-click="updateAthlete()" class="btn btn-info APIbtn">Update Athlete</button>
+            <button type="submit" ng-click="clearData()" class="btn btn-danger APIbtn">Clear</button>
+          </form>
+          <hr class="intro-divider">
+          <p class="text-center text-danger" style="font-size:35px;margin:10px">Athlete Details</p>
+        </tr>
+        <thread>
+          <th>Athlete Name</th>
+          <th>Gender</th>
+          <th>Nationality</th>
+          <th>Location</th>
+          <th>DOB</th>
+          <th></th>
+        </thread>
+        <tbody>
+          <tr ng-repeat="athlete in athletelist">
+            <td>{{athlete.basic.name}}</td>
+            <td>{{athlete.basic.gender}}</td>
+            <td>{{athlete.basic.nation}}</td>
+            <td>{{athlete.about.country}}</td>
+            <td>{{athlete.basic.dob}}</td>
+            <td><button class="btn btn-warning" ng-click="editAthlete(athlete._id)">Edit Athlete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+    <script src="controllers/controller.js"></script>
+    <script src="controllers/countries.js"></script>
+    <script src="controllers/sports.js"></script>
+  </body>
+  </html>
