@@ -16,7 +16,7 @@
             <div class="form-group row">
                 <label for="athlete.basic.name" class="col-sm-2 col-form-label">Athlete Name</label>
                 <div class="col-md-4">
-                  <input type="text" class="form-control" ng-model="athlete.basic.name" placeholder="Enter Athlete Name">
+                  <input type="text" class="form-control" ng-model="athlete.basic.name" placeholder="Enter Athlete Name" required>
                 </div>
             </div>
             <fieldset class="form-group row">
@@ -96,6 +96,8 @@
               </div>
           </div>
           <button type="submit" ng-click="addAthlete()" class="btn btn-success">Add Athlete</button>
+          <button type="submit" ng-click="updateAthlete()" class="btn btn-info">Update Athlete</button>
+          <button type="submit" ng-click="clearData()" class="btn btn-danger">Clear</button>
         </form>
       <p class="text-center text-danger" style="font-size:35px;margin:10px">Athlete Details</p>
       </tr>
@@ -106,7 +108,6 @@
     <th>Location</th>
     <th>DOB</th>
     <th></th>
-    <th></th>
     </thread>
     <tbody>
     <tr ng-repeat="athlete in athletelist">
@@ -115,6 +116,9 @@
     <td>{{athlete.basic.nation}}</td>
     <td>{{athlete.about.country}}</td>
     <td>{{athlete.basic.dob}}</td>
+    <td><button class="btn btn-warning" ng-click="editAthlete(athlete._id)">Edit Athlete</button></td>
+    </tr>
+  </tbody>
   </table>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>

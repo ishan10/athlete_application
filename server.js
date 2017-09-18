@@ -26,6 +26,46 @@ app.post('/athletes',function(req,res){
     res.json(doc);
   });
 });
+//populate athlete from mongodb GET method
+app.get('/athletes/:id',function(req,res){
+  var id = req.params.id;
+  console.log(id);
+  db.athletes.findOne({_id:mongojs.ObjectId(id)},function(err,doc){
+    res.json(doc);
+  });
+});
 
+
+//update athlete data in the mogodb using PUT Method
+app.put('/athletes/:id',function(req,res){
+  var id = req.params.id;
+  console.log(req.body.basic.name);
+  db.athletes.findAndModify({query:{_id:mongojs.ObjectId(id)},
+  update: {$set:
+              {
+                  basic: {
+                      name: req.body.basic.name,
+                      gender: req.body.basic.gender,
+                      dob:req.body.basic.dob,
+                      nation:req.body.basic.nation,
+                      sport:[req.body.basic.sport]
+                  },
+                  about: {
+                      country:req.body.about.country,
+                      desc:req.body.about.desc,
+                      team:req.body.about.team
+                  },
+                  social: {
+                    fb:req.body.social.fb,
+                    linkedin:req.body.social.linkedin,
+                    github:req.body.social.github,
+                    twitter:req.body.social.twitter
+                  }
+              }
+          },
+          new : true},function (err,doc){
+            res.json(doc);
+          });
+});
 app.listen(3000);
 console.log('server running on port 3000');
