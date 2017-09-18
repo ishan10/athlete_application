@@ -1,12 +1,34 @@
 <!DOCTYPE>
 <html ng-app>
 <head>
-  <title>Athlete App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <title>Athlete App</title>
 </head>
 <body>
+  <div class="container" ng-controller="AppCtrl">
+    <p class="text-center text-info" style="font-size:35px;margin:10px">Athlete Application</p>
   <h2> Athlete Registration</h2>
-  <input type="text" ng-model="test">{{test}}
-
+  <table class="table">
+    <thread>
+    <th>Athlete Name</th>
+    <th>Gender</th>
+    <th>Nationality</th>
+    <th>Location</th>
+    <th>DOB</th>
+    <th></th>
+    <th></th>
+    </thread>
+    <tbody>
+    <tr ng-repeat="athlete in athletelist">
+    <td>{{athlete.basic.name}}</td>
+    <td>{{athlete.basic.gender}}</td>
+    <td>{{athlete.basic.nation}}</td>
+    <td>{{athlete.about.country}}</td>
+    <td>{{athlete.basic.dob}}</td>
+  </table>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
 </body>
 </html>
