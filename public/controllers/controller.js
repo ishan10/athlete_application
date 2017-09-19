@@ -13,10 +13,14 @@ function AppCtrl($scope, $http) {
   //add button click controller to add athlete into mongodb
   $scope.addAthlete = function() {
     console.log($scope.athlete);
+    if($scope.athlete.basic.name){
     $http.post('/athletes',$scope.athlete).success(function(response){
       console.log(response);
       refresh();
     });
+    }
+    else
+    console.log("Enter a valid name");
   };
   //edit button click controller to populate athlete from mongodb using GET
   $scope.editAthlete = function(id){
